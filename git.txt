@@ -1,0 +1,7 @@
+git -> |-> diff "filename"
+       |-> log [--pretty=oneline]
+       |-> reflog
+       |-> reset |-> HEAD filename  /*撤销暂存区修改*/
+                 |-> --hard |-> HEAD^  /*版本回退*/
+                            |-> commitid
+       |-> checkout -- filename
