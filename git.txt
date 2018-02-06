@@ -1,7 +1,30 @@
 git -> |-> diff "filename"
-       |-> log [--pretty=oneline]
+       |-> log |-> [--pretty=oneline]
+               |-> [--graph --pretty=oneline --abbrev-commit]  /*查看分支合并*/
        |-> reflog
        |-> reset |-> HEAD filename  /*撤销暂存区修改*/
                  |-> --hard |-> HEAD^  /*版本回退*/
                             |-> commitid
-       |-> checkout -- filename
+       |-> checkout |-> -- filename  /*用暂存区内容替代工作区内容*/
+                    |-> -b dev
+                    |-> -d dev  /*删除*/
+                    |-> dev
+       |-> rm filename
+       |-> remote |-> add originname https://github.com/Crazy404/ECMAscript6.git
+                  |-> -v
+       |-> push/clone [-u] originname master
+       |-> branch dev  /*创建*/
+                  |-> --set-upstream branch-name origin/branch-name  /*连接远程分支*/
+       |-> merge [--no-ff -m ""] branchname
+       |-> stash |-> list
+                 |-> apply [stash@{0}]
+                 |-> drop
+                 |-> pop
+       |-> pull
+       |-> fetch
+       |-> merge
+       |-> tag |-> v1.0 commitid
+               |-> -a v1.0 -m "说明" commitid
+               |-> -d v1.0
+       |-> show tagname
+       |-> check-ignore -v filename
